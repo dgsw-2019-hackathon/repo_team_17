@@ -7,12 +7,6 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncreament: true,
     },
-    good: {
-      field: 'good',
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 0,
-    },
     postIdx: {
       field: 'post_idx',
       type: DataTypes.INTEGER,
@@ -37,5 +31,23 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
 
+  PostFeedback.getFeedByPostIdx = (postIdx) => PostFeedback.findAll({
+    where: {
+      postIdx,
+    },
+    raw: true,
+  });
+
   return PostFeedback;
+
+  // PostFeedback.query(`
+  //   SELECT idx, memberId, SUM(idx) AS likeCount, 
+  //   FROM post_feedback
+  //   WHERE post_idx = :postIdx
+  // `, {
+  //   type: sequelize.QueryTypes.SELECT,
+  //   replacements: {
+  //     postIdx
+  //   }
+  // });
 };

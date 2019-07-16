@@ -57,5 +57,11 @@ module.exports = (sequelize, DataTypes) => {
     raw: true,
   });
 
+  Post.createPost = (memberId, data) => Post.create({
+    writerId: memberId,
+    content: data.content,
+    productBarcode: data.productBarcode,
+  });
+
   return Post;
 };

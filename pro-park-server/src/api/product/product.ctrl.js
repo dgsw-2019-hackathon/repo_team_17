@@ -19,6 +19,18 @@ exports.getProductPage = async (req, res) => {
       for (post of posts) {
         // 제품에 대한 대댓글 조회
         const comments = await models.Comment.getCommentByPostIdx(post.idx);
+        const likeCount = await models.PostFeedback.getFeedByPostIdx(post.idx);
+        let like = 0;
+
+        for (likeUser of likeCount) {
+          console.log(likeUser.memberId);
+          if (memberId === likeUser.memberId) {
+            like = 1;
+          }
+        }
+
+        post.like = like;
+        post.likeCount = likeCount.length;
         post.recomment = comments;
       }
     }
