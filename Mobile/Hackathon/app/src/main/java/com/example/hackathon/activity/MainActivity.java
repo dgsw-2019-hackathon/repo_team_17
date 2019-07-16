@@ -28,7 +28,11 @@ public class MainActivity extends BaseActivity<MainActivityBinding, MainViewMode
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        new IntentIntegrator(this).initiateScan();
+        viewModel.number.observe(this, number -> {
+            Intent intent = new Intent(this, ChoiceActivity.class);
+            intent.putExtra("value",number);
+            startActivity(intent);
+        });
         clickEvent();
 
     }
@@ -39,11 +43,13 @@ public class MainActivity extends BaseActivity<MainActivityBinding, MainViewMode
 
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
 
-        Toast.makeText(this,result.getContents(),Toast.LENGTH_LONG).show();
+        Toast.makeText(this,"스캔 완료",Toast.LENGTH_LONG);
+
+        viewModel.number.setValue(result.getContents());
     }
 
     private void clickEvent() {
 
-//        binding.camera.setOnClickListener(v -> );
+        binding.camera.setOnClickListener(v -> new IntentIntegrator(this).initiateScan());
     }
 }
