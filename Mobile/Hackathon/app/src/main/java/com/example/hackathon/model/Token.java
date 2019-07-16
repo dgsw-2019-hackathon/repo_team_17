@@ -9,25 +9,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Token extends ContextWrapper {
 
-    private SharedPreferences sharedPreferences;
-    private SharedPreferences.Editor editor;
-
-    private Context context;
-
     public Token(Context context) {
         super(context);
-        this.context = context;
-
-        sharedPreferences = getSharedPreferences("hackathon",MODE_PRIVATE);
-        editor = sharedPreferences.edit();
     }
 
     private String token;
 
-    @SerializedName("refresh_token")
-    private String refreshToken;
-
     public void setToken(String token) {
+
+        SharedPreferences sharedPreferences = getSharedPreferences("hackathon",MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
 
         editor.putString("token", token);
 
@@ -36,24 +27,11 @@ public class Token extends ContextWrapper {
 
     public String getToken() {
 
+        SharedPreferences sharedPreferences = getSharedPreferences("hackathon",MODE_PRIVATE);
+
         token = sharedPreferences.getString("token","");
 
         return token;
-
-    }
-
-    public void setRefreshToken(String refreshToken) {
-
-        editor.putString("refreshToken", refreshToken);
-
-        editor.commit();
-    }
-
-    public String getRefreshToken() {
-
-        refreshToken = sharedPreferences.getString("refreshToken","");
-
-        return refreshToken;
 
     }
 }

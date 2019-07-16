@@ -44,14 +44,19 @@ public class ChoiceActivity extends BaseActivity<ChoiceActivityBinding, ChoiceVi
     private void checkManage(Boolean check) {
 
         if (check) {
-            binding.write.setVisibility(View.VISIBLE);
+            binding.read.setImageDrawable(getDrawable(R.drawable.login_part));
+            binding.write.setImageDrawable(getDrawable(R.drawable.file_part));
         }
         else {
-            binding.read.setVisibility(View.INVISIBLE);
+            binding.write.setImageDrawable(getDrawable(R.drawable.login_part));
+            binding.read.setImageDrawable(getDrawable(R.drawable.file_part));
         }
     }
 
     private void clickEvent() {
+
+        binding.read.setOnClickListener(v -> viewModel.check.setValue(false));
+        binding.write.setOnClickListener(v -> viewModel.check.setValue(true));
 
         binding.back.setOnClickListener(v -> {
             Intent intent = new Intent(this, MainActivity.class);

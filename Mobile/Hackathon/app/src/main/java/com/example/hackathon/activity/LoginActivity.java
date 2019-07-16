@@ -36,9 +36,11 @@ public class LoginActivity extends BaseActivity<LoginActivityBinding, LoginViewM
         viewModel.getResponse().observe(this, user -> {
             Token token = new Token(this);
             token.setToken(user.getToken());
-            token.setRefreshToken(user.getRefreshToken());
 
             Toast.makeText(this, "로그인 성공!", Toast.LENGTH_LONG).show();
+
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
         });
 
         clickEvent();

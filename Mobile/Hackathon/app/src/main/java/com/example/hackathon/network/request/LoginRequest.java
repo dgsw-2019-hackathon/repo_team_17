@@ -14,13 +14,9 @@ public class LoginRequest {
     private String device;
 
     public LoginRequest(String id, String pw) {
-        try {
-            this.id = id;
-            this.pw = Utils.encryptSHA512(pw);
-            this.device = "mobile";
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
+        this.id = id;
+        this.pw = pw;
+        this.device = "mobile";
     }
     public String getId() {
         return id;

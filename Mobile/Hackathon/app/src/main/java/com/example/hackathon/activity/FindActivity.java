@@ -1,5 +1,6 @@
 package com.example.hackathon.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -23,5 +24,8 @@ public class FindActivity extends BaseActivity<FindActivityBinding, FindViewMode
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent intent = getIntent();
+        viewModel.value.setValue(intent.getStringExtra("barcode"));
     }
 }
