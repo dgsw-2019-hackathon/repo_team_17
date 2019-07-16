@@ -12,7 +12,7 @@ const sequelize = new Sequelize(
     host: config.host,
     dialect: config.dialect,
     port: config.port,
-    logging: true,
+    logging: (str) => console.log(str),
     timezone: 'Asia/Seoul',
     pool: {
       max: 5,

@@ -39,5 +39,13 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
 
+  Member.userLogin = (data) => Member.findOne({
+    where: {
+      id: data.id,
+      pw: data.pw,
+    },
+    raw: true,
+  });
+
   return Member;
 };

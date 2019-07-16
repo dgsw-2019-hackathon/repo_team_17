@@ -4,9 +4,9 @@ const { JWT_SECRET: secret } = process.env;
 
 const jwt = require('jsonwebtoken');
 
-exports.createToken = async (memberId, auth) => { // Create Token
+exports.createToken = async (memberId, name) => { // Create Token
   const payload = {
-    memberId, auth,
+    memberId, name,
   };
   const option = { expiresIn: '60 days', subject: 'token' };
 
@@ -17,9 +17,9 @@ exports.createToken = async (memberId, auth) => { // Create Token
   }
 };
 
-exports.createRefreshToken = async (memberId, auth) => { // Create Refresh Token
+exports.createRefreshToken = async (memberId, name) => { // Create Refresh Token
   const payload = {
-    memberId, auth,
+    memberId, name,
   };
   const option = { expiresIn: '30 days', subject: 'refreshToken' };
 
