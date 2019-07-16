@@ -2,15 +2,12 @@ package com.example.hackathon;
 
 import android.os.Environment;
 
-/**
- * @author 정성화
- */
 public final class Constants {
 
     public static final String DIRECTORY_DOWNLOADS = Environment.DIRECTORY_DOWNLOADS + "/DodamDodam";
 
     public static final String SOCKET_HOST = "http://192.168.0.55:3000";
-    public static final String DEFAULT_HOST = "http://192.168.1.13:8000";
+    public static final String DEFAULT_HOST = "http://192.168.137.1:8888";
 
     public static final String TEST_HOST = "http://10.80.162.124:8000";
 

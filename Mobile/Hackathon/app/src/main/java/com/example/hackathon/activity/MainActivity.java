@@ -43,7 +43,7 @@ public class MainActivity extends BaseActivity<MainActivityBinding, MainViewMode
 
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode,resultCode,data);
 
-        Toast.makeText(this,"스캔 완료",Toast.LENGTH_LONG);
+        Toast.makeText(this,"스캔 완료",Toast.LENGTH_LONG).show();
 
         viewModel.number.setValue(result.getContents());
     }

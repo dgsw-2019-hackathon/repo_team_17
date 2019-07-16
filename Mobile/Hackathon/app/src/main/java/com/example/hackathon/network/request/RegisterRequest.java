@@ -17,15 +17,11 @@ public class RegisterRequest {
     private String device;
 
     public RegisterRequest(String id, String pw, String phone, String name) {
-        try {
-            this.id = id;
-            this.pw = Utils.encryptSHA512(pw);
-            this.phone = phone;
-            this.name = name;
-            this.device = "mobile";
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        }
+        this.id = id;
+        this.pw = pw;
+        this.phone = phone;
+        this.name = name;
+        this.device = "mobile";
     }
     public String getId() {
         return id;

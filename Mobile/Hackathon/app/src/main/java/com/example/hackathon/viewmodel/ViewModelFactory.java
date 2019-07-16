@@ -23,7 +23,11 @@ public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
             return (T) new MainViewModel(context);
         } if (modelClass == ChoiceViewModel.class) {
             return (T) new ChoiceViewModel(context);
-        }else {
+        } if (modelClass == WriteViewModel.class) {
+            return (T) new WriteViewModel(context);
+        } if (modelClass == FindViewModel.class) {
+            return (T) new FindViewModel(context);
+        } else {
             return super.create(modelClass);
         }
     }

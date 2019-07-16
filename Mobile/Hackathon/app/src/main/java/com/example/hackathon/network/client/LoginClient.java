@@ -35,8 +35,6 @@ public class LoginClient extends NetworkClient{
                 Login login = new Login();
 
                 login.setToken(response.body().getData().getToken());
-                login.setRefreshToken(response.body().getData().getRefreshToken());
-                login.setMember(response.body().getData().getMember());
 
                 return login;
             }
