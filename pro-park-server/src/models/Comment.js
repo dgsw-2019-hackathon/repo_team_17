@@ -42,5 +42,14 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
 
+  Comment.getCommentByPostIdx = (postIdx) => Comment.findAll({
+    attributes: ['idx', 'content', 'writerId', 'writeDate'],
+    where: {
+      postIdx,
+    },
+    order: [['write_date', 'desc']],
+    raw: true,
+  })
+
   return Comment;
 };

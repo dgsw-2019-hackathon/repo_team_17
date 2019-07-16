@@ -49,5 +49,13 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
 
+  Post.getPostByBarcode = (barcode) => Post.findAll({
+    attributes: ['idx', 'content', 'writerId', 'writeDate'],
+    where: {
+      productBarcode: barcode,
+    },
+    raw: true,
+  });
+
   return Post;
 };
