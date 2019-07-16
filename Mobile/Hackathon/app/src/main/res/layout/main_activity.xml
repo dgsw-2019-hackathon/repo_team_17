@@ -28,12 +28,24 @@
         app:layout_constraintStart_toStartOf="@+id/header"
         app:layout_constraintTop_toTopOf="@+id/header" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+
+    </androidx.recyclerview.widget.RecyclerView>
     <ImageView
         android:id="@+id/camera"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/round_part"
         android:padding="15dp"
         android:src="@drawable/ic_camera_alt_black_24dp"
