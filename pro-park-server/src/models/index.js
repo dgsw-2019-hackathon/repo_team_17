@@ -10,6 +10,7 @@ const sequelize = new Sequelize(
   config.password,
   {
     host: config.host,
+    dialect: config.dialect,
     port: config.port,
     logging: true,
     timezone: 'Asia/Seoul',
@@ -37,10 +38,10 @@ Object.keys(models).forEach((modelName) => {
 });
 
 // 스키마 동기화
-sequelize.sync().then(() => {
-  console.log('Schema is synchronized');
-}).catch((err) => {
-  console.error('An error has occurred: ', err);
-});
+// sequelize.sync().then(() => {
+//   console.log('Schema is synchronized');
+// }).catch((err) => {
+//   console.error('An error has occurred: ', err);
+// });
 
 module.exports = models;

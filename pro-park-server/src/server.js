@@ -6,6 +6,7 @@ const compression = require('compression');
 const overload = require('method-override');
 const Http = require('http');
 const api = require('./api');
+const models = require('./models');
 
 const { PORT : port } = process.env;
 const app = express();
