@@ -3,9 +3,8 @@ module.exports = (sequelize, DataTypes) => {
     idx: {
       field: 'idx',
       type: DataTypes.INTEGER,
-      allowNull: false,
       primaryKey: true,
-      autoIncreament: true,
+      autoIncrement: true,
     },
     postIdx: {
       field: 'post_idx',
@@ -36,6 +35,26 @@ module.exports = (sequelize, DataTypes) => {
       postIdx,
     },
     raw: true,
+  });
+
+  PostFeedback.getFeedById = (memberId, postIdx) => PostFeedback.findAll({
+    where: {
+      memberId,
+      postIdx,
+    },
+    raw: true,
+  });
+
+  PostFeedback.createLike = (memberId, postIdx) => PostFeedback.create({
+    memberId,
+    postIdx,
+  });
+
+  PostFeedback.deleteLike = (memberId, postIdx) => PostFeedback.destroy({
+    where: {
+      memberId,
+      postIdx,
+    }
   });
 
   return PostFeedback;

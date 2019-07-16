@@ -3,9 +3,8 @@ module.exports = (sequelize, DataTypes) => {
     idx: {
       field: 'idx',
       type: DataTypes.INTEGER,
-      allowNull: false,
       primaryKey: true,
-      autoIncreament: true,
+      autoIncrement: true,
     },
     content: {
       field: 'content',
@@ -49,7 +48,13 @@ module.exports = (sequelize, DataTypes) => {
     },
     order: [['write_date', 'desc']],
     raw: true,
-  })
+  });
+
+  Comment.createComment = (memberId, data) => Comment.create({
+    writerId: memberId,
+    content: data.content,
+    postIdx: data.postIdx,
+  });
 
   return Comment;
 };

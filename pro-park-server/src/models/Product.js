@@ -3,9 +3,7 @@ module.exports = (sequelize, DataTypes) => {
     barcode: {
       field: 'barcode',
       type: DataTypes.STRING(45),
-      allowNull: false,
       primaryKey: true,
-      autoIncreament: true,
     },
     name: {
       field: 'name',

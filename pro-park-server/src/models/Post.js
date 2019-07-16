@@ -3,9 +3,8 @@ module.exports = (sequelize, DataTypes) => {
     idx: {
       field: 'idx',
       type: DataTypes.INTEGER,
-      allowNull: false,
       primaryKey: true,
-      autoIncreament: true,
+      autoIncrement: true,
     },
     content: {
       field: 'content',
@@ -61,6 +60,7 @@ module.exports = (sequelize, DataTypes) => {
     writerId: memberId,
     content: data.content,
     productBarcode: data.productBarcode,
+    writeDate: new Date(),
   });
 
   return Post;
