@@ -28,5 +28,17 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
 
+  Product.getRecommendProduct = () => Product.findAll({
+    limit: 7,
+  });
+
+  Product.getProductByBarcode = (barcode) => Product.findOne({
+    attributes: ['barcode', 'name', 'img'],
+    where: {
+      barcode
+    },
+    raw: true,
+  });
+
   return Product;
 };
