@@ -24,6 +24,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".activity.RegisterActivity"></activity>
+        <activity android:name=".activity.MainActivity"></activity>
+        <activity android:name=".activity.FindActivity"></activity>
+        <activity android:name=".activity.ChoiceActivity"></activity>
+        <activity android:name=".activity.WriteActivity"></activity>
     </application>
 
 </manifest>

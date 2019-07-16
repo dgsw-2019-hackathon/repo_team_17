@@ -19,6 +19,10 @@ public class ViewModelFactory extends ViewModelProvider.NewInstanceFactory {
             return (T) new LoginViewModel(context);
         } if (modelClass == RegisterViewModel.class) {
             return (T) new RegisterViewModel(context);
+        } if (modelClass == MainViewModel.class) {
+            return (T) new MainViewModel(context);
+        } if (modelClass == ChoiceViewModel.class) {
+            return (T) new ChoiceViewModel(context);
         }else {
             return super.create(modelClass);
         }
