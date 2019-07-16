@@ -8,12 +8,15 @@ import com.example.hackathon.network.response.Response;
 
 import io.reactivex.Single;
 import retrofit2.http.Body;
+import retrofit2.http.Header;
 import retrofit2.http.POST;
 
 public interface WriteService {
 
     @NonNull
-    @POST("")
-    Single<Response> write(@Body WriteRequest writeRequest);
+    @POST("/comment")
+    Single<Response> write(
+            @Header("x-access-token") String token,
+            @Body WriteRequest writeRequest);
 
 }

@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.hackathon.model.Product;
+import com.example.hackathon.model.Token;
 import com.example.hackathon.network.client.FindClient;
 
 public class FindViewModel extends BaseViewModel<Product> {
@@ -28,5 +29,10 @@ public class FindViewModel extends BaseViewModel<Product> {
     public void find() {
 
         addDisposable(findClient.getProduct(getToken(), value.getValue()),getDataObserver());
+    }
+
+    public void like(Integer idx) {
+
+        addDisposable(findClient.like(getToken(),idx),getBaseObserver());
     }
 }

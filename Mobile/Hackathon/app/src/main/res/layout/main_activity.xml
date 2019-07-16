@@ -5,7 +5,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.MainActivity">
+    tools:context=".activity.MainActivity"
+    android:background="#f1f1f1f1">
 
     <TextView
         android:id="@+id/header"
@@ -18,11 +19,12 @@
         android:textColor="#fff"
         android:textSize="20dp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="인기제품"/>
 
     <ImageView
-        android:id="@+id/option"
-        android:src="@drawable/ic_menu_black_24dp"
+        android:id="@+id/back"
+        android:src="@drawable/ic_arrow_back_black_24dp"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="8dp"
@@ -53,6 +55,18 @@
         android:src="@drawable/ic_camera_alt_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/shop"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/round_part"
+        android:padding="15dp"
+        android:src="@drawable/ic_business_center_black_24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

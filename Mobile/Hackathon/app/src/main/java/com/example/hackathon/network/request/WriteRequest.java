@@ -2,28 +2,28 @@ package com.example.hackathon.network.request;
 
 public class WriteRequest {
 
-    private String barcode;
+    private String productBarcode;
 
-    private String contents;
+    private String content;
 
     public WriteRequest(String barcode, String contents) {
-        this.barcode = barcode;
-        this.contents = contents;
+        this.productBarcode = barcode;
+        this.content = contents;
     }
 
     public String getBarcode() {
-        return barcode;
+        return productBarcode;
     }
 
     public void setBarcode(String barcode) {
-        this.barcode = barcode;
+        this.productBarcode = barcode;
     }
 
     public String getContents() {
-        return contents;
+        return content;
     }
 
     public void setContents(String contents) {
-        this.contents = contents;
+        this.content = contents;
     }
 }

@@ -20,7 +20,7 @@ public class WriteViewModel extends BaseViewModel {
 
     public void write(WriteRequest writeRequest) {
 
-        addDisposable(writeClient.write(writeRequest),getBaseObserver());
+        addDisposable(writeClient.write(getToken(),writeRequest),getBaseObserver());
 
     }
 }

@@ -46,10 +46,14 @@ public class ChoiceActivity extends BaseActivity<ChoiceActivityBinding, ChoiceVi
         if (check) {
             binding.read.setImageDrawable(getDrawable(R.drawable.login_part));
             binding.write.setImageDrawable(getDrawable(R.drawable.file_part));
+            binding.writeText.setTextColor(binding.writeText.getResources().getColor(R.color.white));
+            binding.readText.setTextColor(binding.readText.getResources().getColor(R.color.back));
         }
         else {
             binding.write.setImageDrawable(getDrawable(R.drawable.login_part));
             binding.read.setImageDrawable(getDrawable(R.drawable.file_part));
+            binding.writeText.setTextColor(binding.writeText.getResources().getColor(R.color.back));
+            binding.readText.setTextColor(binding.readText.getResources().getColor(R.color.white));
         }
     }
 

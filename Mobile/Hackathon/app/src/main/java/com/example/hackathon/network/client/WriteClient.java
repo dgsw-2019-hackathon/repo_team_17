@@ -1,6 +1,7 @@
 package com.example.hackathon.network.client;
 
 import com.example.hackathon.Utils;
+import com.example.hackathon.model.Token;
 import com.example.hackathon.network.request.WriteRequest;
 import com.example.hackathon.network.response.Response;
 import com.example.hackathon.network.retrofit.WriteService;
@@ -15,8 +16,8 @@ public class WriteClient extends NetworkClient {
         writeService = Utils.RETROFIT.create(WriteService.class);
     }
 
-    public Single<String> write(WriteRequest writeRequest) {
+    public Single<String> write(Token token,WriteRequest writeRequest) {
 
-        return writeService.write(writeRequest).map(Response::getMessage);
+        return writeService.write(token.getToken(),writeRequest).map(Response::getMessage);
     }
 }
