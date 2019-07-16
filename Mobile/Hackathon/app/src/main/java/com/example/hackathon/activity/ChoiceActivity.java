@@ -73,6 +73,7 @@ public class ChoiceActivity extends BaseActivity<ChoiceActivityBinding, ChoiceVi
             }
             else {
                 intent = new Intent(this,FindActivity.class);
+                intent.putExtra("barcode",viewModel.value.getValue());
             }
 
             startActivity(intent);

@@ -1,34 +1,59 @@
 package com.example.hackathon.model;
 
+import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
 public class Write {
 
-    private String barcode;
+    @SerializedName("idx")
+    private int idx;
+    @SerializedName("content")
+    private String content;
+    @SerializedName("writerId")
+    private String writerId;
+    @SerializedName("likeCount")
+    private Integer like;
+    @SerializedName("recomment")
+    private List<Recomment> recomment;
 
-    private String contents;
-
-    private String writer;
-
-    public String getBarcode() {
-        return barcode;
+    public int getIdx() {
+        return idx;
     }
 
-    public void setBarcode(String barcode) {
-        this.barcode = barcode;
+    public void setIdx(int idx) {
+        this.idx = idx;
     }
 
     public String getContents() {
-        return contents;
+        return content;
     }
 
     public void setContents(String contents) {
-        this.contents = contents;
+        this.content = contents;
     }
 
     public String getWriter() {
-        return writer;
+        return writerId;
     }
 
     public void setWriter(String writer) {
-        this.writer = writer;
+        this.writerId = writer;
+    }
+
+    public Integer getLike() {
+        return like;
+    }
+
+    public void setLike(Integer like) {
+        this.like = like;
+    }
+
+    public List<Recomment> getRecomment() {
+        return recomment;
+    }
+
+    public void setRecomment(List<Recomment> recomment) {
+        this.recomment = recomment;
     }
 }
