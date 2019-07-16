@@ -59,9 +59,17 @@ public class ChoiceActivity extends BaseActivity<ChoiceActivityBinding, ChoiceVi
         });
 
         binding.go.setOnClickListener(v -> {
-            Intent intent = new Intent(this,WriteActivity.class);
-            intent.putExtra("type",viewModel.check.getValue());
-            intent.putExtra("value",viewModel.value.getValue());
+
+            Intent intent;
+
+            if (viewModel.check.getValue()) {
+                intent = new Intent(this,WriteActivity.class);
+                intent.putExtra("value",viewModel.value.getValue());
+            }
+            else {
+                intent = new Intent(this,FindActivity.class);
+            }
+
             startActivity(intent);
         });
     }
