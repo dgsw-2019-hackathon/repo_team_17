@@ -6,17 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".activity.MainActivity"
-    android:background="#f1f1f1f1">
+    android:background="#FEFEFE">
 
     <TextView
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
-        android:background="@drawable/part"
+        android:background="@drawable/main_header_part"
         android:gravity="center"
         android:padding="15dp"
-        android:textColor="#fff"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent"

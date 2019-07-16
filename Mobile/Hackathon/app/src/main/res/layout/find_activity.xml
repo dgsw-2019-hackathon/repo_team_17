@@ -6,7 +6,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".activity.FindActivity">
+        tools:context=".activity.FindActivity"
+        android:background="@color/white">
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/nestedScrollView"
@@ -35,7 +36,7 @@
                         android:layout_marginStart="20dp"
                         android:layout_marginTop="20dp"
                         android:layout_marginEnd="8dp"
-                        android:src="@drawable/login_part"
+                        android:src="@drawable/base_part"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -130,7 +131,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/login_part"
+            android:background="@drawable/base_part"
             android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="@+id/question"
             app:layout_constraintEnd_toEndOf="@+id/question"
@@ -142,7 +143,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
-            android:background="@drawable/part"
+            android:background="@drawable/header_part"
             android:gravity="center"
             android:padding="15dp"
             android:textColor="#fff"
@@ -177,10 +178,12 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
             android:text="참붕어빵"
-            android:textSize="25dp"
-            android:textColor="@color/white"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20dp"
             android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/header"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

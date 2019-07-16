@@ -3,23 +3,21 @@
 
     <item>
         <shape android:shape="rectangle">
-            <corners android:radius="24dp" />
             <gradient
                 android:angle="0"
-                android:startColor="@color/colorAccent"
-                android:endColor="@color/colorPrimaryDark"/>
+                android:startColor="#f3f3f3"
+                android:endColor = "#f3f3f3"/>
             <padding
-                android:bottom="2dp"
-                android:left="2dp"
-                android:right="2dp"
-                android:top="2dp" />
+                android:bottom="1dp"
+                android:left="0dp"
+                android:right="0dp"
+                android:top="0dp" />
         </shape>
     </item>
 
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#fff" />
-            <corners android:radius="24dp" />
+            <solid android:color="#FEFEFE" />
             <padding
                 android:bottom="10dp"
                 android:left="10dp"
