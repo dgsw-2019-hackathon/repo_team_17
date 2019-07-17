@@ -88,7 +88,7 @@ exports.toggleLike = async (req, res) => {
         console.log('취소');
         await models.PostFeedback.deleteLike(memberId, body.postIdx);
       } else {
-        console.log('좋아요');
+        console.log('추천');
         await models.PostFeedback.createLike(memberId, body.postIdx);
       }
     }
@@ -100,7 +100,7 @@ exports.toggleLike = async (req, res) => {
 
     res.status(200).json(result);
 
-    console.log('[comment - toggleLike] 좋아요 토글 성공');
+    console.log('[comment - toggleLike] 추천 토글 성공');
   } catch (error) {
     console.error(`[comment - toggleLike] 서버 에러 : ${error}`);
     const result = {

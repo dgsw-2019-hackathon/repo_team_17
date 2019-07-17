@@ -2,7 +2,7 @@ const lib = require('../lib/token');
 
 const auth = async (req, res, next) => {
   const token  = req.headers['x-access-token'];
-
+  console.log('[Middleware - auth] 토큰 : ', token);
   if (!token) {
     const result = {
       status: 400,

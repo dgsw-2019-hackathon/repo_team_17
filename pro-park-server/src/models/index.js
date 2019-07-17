@@ -44,4 +44,6 @@ Object.keys(models).forEach((modelName) => {
 //   console.error('An error has occurred: ', err);
 // });
 
+models.sequelize = sequelize;
+
 module.exports = models;

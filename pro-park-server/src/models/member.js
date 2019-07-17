@@ -47,5 +47,12 @@ module.exports = (sequelize, DataTypes) => {
     raw: true,
   });
 
+  Member.getMember = (id) => Member.findAll({
+    where: {
+      id
+    },
+    raw: true,
+  })
+
   return Member;
 };
