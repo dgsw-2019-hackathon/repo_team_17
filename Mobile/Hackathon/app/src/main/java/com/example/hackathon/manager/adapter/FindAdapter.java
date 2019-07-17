@@ -55,11 +55,11 @@ public class FindAdapter extends RecyclerView.Adapter<FindViewHolder> {
     public void onBindViewHolder(@NonNull FindViewHolder holder, int position) {
         Write write = list.get(position);
 
-        holder.binding.like.setText("추천 " + write.getLike() + "개");
+        holder.binding.like.setText("추천 " + write.getLikeCount() + "개");
         holder.binding.textView.setText(write.getContents());
         holder.binding.writer.setText(write.getWriter());
 
-        if (write.getLikeCount() == 1) {
+        if (write.getLike() == 1) {
             holder.binding.like.setBackgroundResource(R.drawable.like_part);
             holder.binding.like.getResources().getColor(R.color.white);
         } else {
