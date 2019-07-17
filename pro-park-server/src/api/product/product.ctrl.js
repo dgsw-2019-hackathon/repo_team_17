@@ -13,7 +13,8 @@ exports.getProductPage = async (req, res) => {
     const product = await models.Product.getProductByBarcode(barcode);
 
     // 제품에 대한 댓글 조회
-    let posts = await models.Post.getPostByBarcode(barcode);
+    let posts = await models.Post.getPostByBarcode(models, barcode);
+
 
     if (posts) {
       for (post of posts) {
@@ -34,6 +35,7 @@ exports.getProductPage = async (req, res) => {
         post.recomment = comments;
       }
     }
+    console.log(posts);
 
     const result = {
       status: 200,
