@@ -13,6 +13,8 @@ public class Write {
     @SerializedName("writerId")
     private String writerId;
     @SerializedName("likeCount")
+    private Integer likeCount;
+    @SerializedName("like")
     private Integer like;
     @SerializedName("recomment")
     private List<Recomment> recomment;
@@ -55,5 +57,13 @@ public class Write {
 
     public void setRecomment(List<Recomment> recomment) {
         this.recomment = recomment;
+    }
+
+    public Integer getLikeCount() {
+        return likeCount;
+    }
+
+    public void setLikeCount(Integer likeCount) {
+        this.likeCount = likeCount;
     }
 }

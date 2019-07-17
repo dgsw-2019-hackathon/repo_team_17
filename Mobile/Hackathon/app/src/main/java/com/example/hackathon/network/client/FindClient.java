@@ -3,6 +3,7 @@ package com.example.hackathon.network.client;
 import com.example.hackathon.Utils;
 import com.example.hackathon.model.Product;
 import com.example.hackathon.model.Token;
+import com.example.hackathon.network.response.Response;
 import com.example.hackathon.network.retrofit.FindService;
 
 import io.reactivex.Single;
@@ -32,5 +33,10 @@ public class FindClient extends NetworkClient {
                 throw new Exception(response.body().getMessage());
             }
         });
+    }
+
+    public Single<String> like(Token token, Integer idx) {
+
+        return findService.like(token.getToken(), idx).map(Response::getMessage);
     }
 }

@@ -5,9 +5,13 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hackathon.R;
 import com.example.hackathon.databinding.MainActivityBinding;
+import com.example.hackathon.manager.adapter.ProductAdapter;
+import com.example.hackathon.manager.adapter.ShopAdapter;
 import com.example.hackathon.viewmodel.MainViewModel;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -27,6 +31,18 @@ public class MainActivity extends BaseActivity<MainActivityBinding, MainViewMode
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        viewModel.getProduct();
+
+        viewModel.getData().observe(this, product -> {
+
+            RecyclerView.LayoutManager layoutManager = new GridLayoutManager(this,1);
+            binding.listView.setLayoutManager(layoutManager);
+
+            ProductAdapter productAdapter = new ProductAdapter(product.getProduct());
+            binding.listView.setAdapter(productAdapter);
+
+        });
 
         viewModel.number.observe(this, number -> {
             Intent intent = new Intent(this, ChoiceActivity.class);
@@ -51,5 +67,7 @@ public class MainActivity extends BaseActivity<MainActivityBinding, MainViewMode
     private void clickEvent() {
 
         binding.camera.setOnClickListener(v -> new IntentIntegrator(this).initiateScan());
+
+        binding.shop.setOnClickListener(v -> startActivity(new Intent(this, ShopActivity.class)));
     }
 }

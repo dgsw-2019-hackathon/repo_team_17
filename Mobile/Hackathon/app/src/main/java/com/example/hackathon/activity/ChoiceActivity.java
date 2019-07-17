@@ -44,12 +44,16 @@ public class ChoiceActivity extends BaseActivity<ChoiceActivityBinding, ChoiceVi
     private void checkManage(Boolean check) {
 
         if (check) {
-            binding.read.setImageDrawable(getDrawable(R.drawable.login_part));
-            binding.write.setImageDrawable(getDrawable(R.drawable.file_part));
+            binding.write.setImageDrawable(getDrawable(R.drawable.ic_create_black_24dp_2));
+            binding.read.setImageDrawable(getDrawable(R.drawable.ic_search_black_24dp));
+            binding.writeText.setTextColor(binding.writeText.getResources().getColor(R.color.colorPrimary));
+            binding.readText.setTextColor(binding.readText.getResources().getColor(R.color.white));
         }
         else {
-            binding.write.setImageDrawable(getDrawable(R.drawable.login_part));
-            binding.read.setImageDrawable(getDrawable(R.drawable.file_part));
+            binding.write.setImageDrawable(getDrawable(R.drawable.ic_create_black_24dp));
+            binding.read.setImageDrawable(getDrawable(R.drawable.ic_search_black_24dp_2));
+            binding.writeText.setTextColor(binding.writeText.getResources().getColor(R.color.white));
+            binding.readText.setTextColor(binding.readText.getResources().getColor(R.color.colorPrimary));
         }
     }
 

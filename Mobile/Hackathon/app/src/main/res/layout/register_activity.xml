@@ -5,18 +5,19 @@
     tools:context=".activity.RegisterActivity">
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <TextView
         android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="0dp"
-        android:background="@drawable/part"
+        android:background="@drawable/header_part"
         android:gravity="center"
         android:padding="15dp"
         android:text="회원가입"
-        android:textColor="#fff"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintTop_toTopOf="parent" />
