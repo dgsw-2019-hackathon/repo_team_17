@@ -49,7 +49,26 @@ exports.login = async (req, res) => {
  * @description 회원가입 처리
  */
 exports.signup = async (req, res) => {
-  res.send('asd');
+  const { body } = req;
+
+  try {
+    const member = await models.Member.create(body);
+
+    const result = {
+      status: 200,
+      message: '회원가입 성공',
+    }
+
+    res.status(200).json(result);
+  } catch (error) {
+    console.error(error);
+    const result = {
+      status: 500,
+      message: '회원가입 실패',
+    }
+    
+    res.status(500).json(result);
+  } 
 };
 
 /**
