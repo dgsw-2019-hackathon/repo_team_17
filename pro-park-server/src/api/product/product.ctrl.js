@@ -13,7 +13,8 @@ exports.getProductPage = async (req, res) => {
     const product = await models.Product.getProductByBarcode(barcode);
 
     // 제품에 대한 댓글 조회
-    let posts = await models.Post.getPostByBarcode(models, barcode);
+    // let posts = await models.Post.getPostByBarcode(models, barcode);
+    let posts = await models.Post.getPostByBarcode(barcode);
 
 
     if (posts) {
@@ -34,6 +35,11 @@ exports.getProductPage = async (req, res) => {
         post.likeCount = likeCount.length;
         post.recomment = comments;
       }
+
+      posts.sort((a, b) => { // 내림차순
+        return b['likeCount'] - a['likeCount'];
+        // 44, 25, 21, 13
+    });
     }
     console.log(posts);
 

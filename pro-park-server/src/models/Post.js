@@ -48,24 +48,32 @@ module.exports = (sequelize, DataTypes) => {
     });
   };
 
-  Post.getPostByBarcode = (models, barcode) => models.sequelize.query(`
-    SELECT post.idx AS idx, post.content AS content, post.write_date AS writeDate, post.writer_id AS writerId, post.product_barcode AS barcode
-    FROM post_feedback
-    LEFT JOIN post
-    ON post.idx = post_feedback.post_idx
-    WHERE post_idx IN (
-      SELECT idx
-      FROM post 
-      WHERE post.product_barcode = :barcode
-    )
-    GROUP BY post_idx
-    ORDER BY count(post_idx) DESC
-  `, {
-    type: sequelize.QueryTypes.SELECT,
-    replacements: {
-      barcode,
-    }
+  Post.getPostByBarcode = (barcode) => Post.findAll({
+    attributes: ['idx', 'content', 'writerId', 'writeDate'],
+    where: {
+      productBarcode: barcode,
+    },
+    raw: true,
   });
+
+  // Post.getPostByBarcode = (models, barcode) => models.sequelize.query(`
+  //   SELECT post.idx AS idx, post.content AS content, post.write_date AS writeDate, post.writer_id AS writerId, post.product_barcode AS barcode
+  //   FROM post_feedback
+  //   LEFT JOIN post
+  //   ON post.idx = post_feedback.post_idx
+  //   WHERE post_idx IN (
+  //     SELECT idx
+  //     FROM post 
+  //     WHERE post.product_barcode = :barcode
+  //   )
+  //   GROUP BY post_idx
+  //   ORDER BY count(post_idx) DESC
+  // `, {
+  //   type: sequelize.QueryTypes.SELECT,
+  //   replacements: {
+  //     barcode,
+  //   }
+  // });
 
   Post.createPost = (memberId, data) => Post.create({
     writerId: memberId,
